@@ -31,14 +31,14 @@ The effectiveness of our deep embedding methods was tested against several tradi
 | **Embedding Method**         | **Frappe** | **MovieLens** | **Avazu** | **Criteo** | **Diabetes\_130** |
 |------------------------------|------------|---------------|-----------|------------|-------------------|
 | Original Model Embedding     | 0.9766     | 0.9548        | 0.7591    | 0.8086     | 0.6846            |
-| Handcrafted Embedding [10]   | 0.9782     | 0.9481        | 0.7513    | 0.7857     | 0.6829            |
-| Linearly-Scaled Emb [1]      | 0.9789     | 0.9572        | 0.7651    | 0.8092     | 0.6853            |
-| Discretization & Emb [11]    | 0.9763     | 0.9504        | 0.7524    | 0.7984     | 0.6765            |
-| Embedding Lookup [9]         | 0.9792     | 0.9513        | 0.7606    | 0.8074     | 0.6846            |
-| Hashing & Lookup [12]        | 0.9749     | 0.9547        | 0.7487    | 0.7888     | 0.6871            |
-| Deep Ensemble w/o GBDT [21]  | 0.9808     | 0.9487        | 0.7393    | 0.7782     | 0.6764            |
-| Deep Ensemble w/ GBDT [21]   | 0.9808     | 0.9567        | 0.7441    | 0.7992     | 0.6851            |
-| TabZilla Framework [26]      | 0.9760     | 0.9560        | 0.7411    | 0.7832     | 0.6783            |
+| Handcrafted Embedding        | 0.9782     | 0.9481        | 0.7513    | 0.7857     | 0.6829            |
+| Linearly-Scaled Emb          | 0.9789     | 0.9572        | 0.7651    | 0.8092     | 0.6853            |
+| Discretization & Emb         | 0.9763     | 0.9504        | 0.7524    | 0.7984     | 0.6765            |
+| Embedding Lookup             | 0.9792     | 0.9513        | 0.7606    | 0.8074     | 0.6846            |
+| Hashing & Lookup             | 0.9749     | 0.9547        | 0.7487    | 0.7888     | 0.6871            |
+| Deep Ensemble w/o GBDT       | 0.9808     | 0.9487        | 0.7393    | 0.7782     | 0.6764            |
+| Deep Ensemble w/ GBDT        | 0.9808     | 0.9567        | 0.7441    | 0.7992     | 0.6851            |
+| TabZilla Framework           | 0.9760     | 0.9560        | 0.7411    | 0.7832     | 0.6783            |
 | **Deep Embedding (Ours)**    | **0.9855** | **0.9597**    | **0.7663**| **0.8090** | **0.6895**        |
 
 ## Ablation Study
@@ -48,9 +48,11 @@ The ablation study was conducted to evaluate the performance of the proposed fra
 The impact of varying the number of deep transformation layers on model performance was investigated. It was found that the optimal number of layers varies by dataset, with Frappe showing best results with two layers, while the Diabetes\_130 dataset benefited from more layers to capture its complexity.
 
 ![Impact of Embedding Size on AUC Improvement](./images/emb_size.png)
+
 *Figure 3: Impact of Embedding Size on AUC Improvement for ARM-Net with Our Deep Embedding Framework on Frappe and Diabetes_130 datasets*
 
 ![Impact of Deep Transformation Layer Size](./images/layer_size.png)
+
 *Figure 4: Impact of Deep Transformation Layer size on ARM-Net Performance: AUC Evaluation on Frappe and Diabetes_130.*
 
 ## Citation
