@@ -67,3 +67,8 @@ If you use this code or reference this work in your research, please cite the fo
   year={2024},
   url={https://github.com/yourusername/DeepFeatureEmbedding}
 }
+
+## Acknowledgments:
+This research was supported by *Beijing Normal University-Hong Kong Baptist University United International College (UIC)* and the *IRADs lab*. 
+The authors express their gratitude for providing the necessary computational facilities.
+
