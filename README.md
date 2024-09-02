@@ -42,7 +42,8 @@ The effectiveness of our deep embedding methods was tested against several tradi
 | **Deep Embedding (Ours)**    | **0.9855** | **0.9597**    | **0.7663**| **0.8090** | **0.6895**        |
 
 ## Ablation Study
-The ablation study was conducted to evaluate the performance of the proposed framework compared to baseline models without the embedding framework. The results indicate significant improvements in AUC when using our deep embedding approach, particularly on datasets like Frappe and Diabetes\_130.
+The ablation study was conducted to evaluate the performance of the proposed framework compared to baseline models without the embedding framework. The results indicate significant improvements in AUC when using our deep embedding approach, particularly on datasets like Frappe and Diabetes130.
+
 ![Impact of Embedding Size on AUC Improvement](./images/ablation.png)
 ## Hyperparameter Analysis
 The impact of varying the number of deep transformation layers on model performance was investigated. It was found that the optimal number of layers varies by dataset, with Frappe showing best results with two layers, while the Diabetes\_130 dataset benefited from more layers to capture its complexity.
