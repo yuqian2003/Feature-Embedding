@@ -60,12 +60,12 @@ The impact of varying the number of deep transformation layers on model performa
 If you use this code or reference this work in your research, please cite the following paper:
 
 ```bibtex
-@article{Wu2024DeepFeatureEmbedding,
+@article{wu2024deep,
   title={Deep Feature Embedding for Tabular Data},
-  author={Yuqian Wu, Hengyi Luo, Raymond S. T. Lee},
-  journal={Journal of Data Science},
+  author={Wu, Yuqian and Luo, Hengyi and Lee, Raymond S. T.},
+  journal={arXiv preprint arXiv:2408.17162v1},
   year={2024},
-  url={https://github.com/yourusername/DeepFeatureEmbedding}
+  url={https://arxiv.org/abs/2408.17162v1}
 }
 ```
 ## Acknowledgments:
