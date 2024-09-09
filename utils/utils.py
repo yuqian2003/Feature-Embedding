@@ -104,6 +104,8 @@ def roc_auc_compute_fn(y_pred, y_target):
     except ValueError:
         print('ValueError: Only one class present in y_true. ROC AUC score is not defined in that case.')
         return 0.
+    # except ValueError:
+    #    pass
 
 
 def load_checkpoint(args):
@@ -129,3 +131,55 @@ def seed_everything(seed=2022):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     torch.backends.cudnn.deterministic = True
+
+import torch
+import torch.nn as nn
+
+class WeightedCombinedLoss(nn.Module):
+    def __init__(self, loss1, loss2, weight1=0.5, weight2=0.5):
+        """
+        Custom loss function that combines two loss functions with weighted average.
+
+        Args:
+            loss1 (nn.Module): First loss function
+            loss2 (nn.Module): Second loss function
+            weight1 (float, optional): Weight for loss1. Defaults to 0.5.
+            weight2 (float, optional): Weight for loss2. Defaults to 0.5.
+        """
+        super(WeightedCombinedLoss, self).__init__()
+        self.loss1 = loss1
+        self.loss2 = loss2
+        self.weight1 = weight1
+        self.weight2 = weight2
+
+    def forward(self, input, target):
+        """
+        Compute the combined loss.
+
+        Args:
+            input (torch.Tensor): Model predictions
+            target (torch.Tensor): Ground truth labels
+
+        Returns:
+            torch.Tensor: Combined loss
+        """
+        loss1_value = self.loss1(input, target)
+        loss2_value = self.loss2(input, target)
+        combined_loss = self.weight1 * loss1_value + self.weight2 * loss2_value
+        return combined_loss
+
+# Example usage
+# Create BCEWithLogitsLoss and MeanSquaredError loss functions
+# bce_loss = nn.BCEWithLogitsLoss(reduction='mean')
+# mse_loss = nn.MSELoss(reduction='mean')
+
+# Create a custom loss function that combines the two losses
+# combined_loss_fn = WeightedCombinedLoss(loss1=bce_loss, loss2=mse_loss, weight1=0.7, weight2=0.3)
+
+# Generate some dummy data
+#input_data = torch.randn(10, 1)
+#target_data = torch.randn(10, 1)
+
+# Compute the combined loss
+#loss_value = combined_loss_fn(input_data, target_data)
+# print(f"Combined Loss: {loss_value.item()}")
