@@ -12,7 +12,7 @@ from models.model_utils import create_model
 from utils.utils import logger, remove_logger, AverageMeter, timeSince, roc_auc_compute_fn, seed_everything, WeightedCombinedLoss
 
 def get_args():
-    parser = argparse.ArgumentParser(description='ARMOR framework')
+    parser = argparse.ArgumentParser(description='Deep Feature Embedding for Tabular Data')
     parser.add_argument('--exp_name', default='test0', type=str, help='exp name for log & checkpoint')
     # our embedding layer
     parser.add_argument('--emb_ncross',default = 1, type=int, help='embedding framework')
