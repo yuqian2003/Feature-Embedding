@@ -12,7 +12,7 @@ class SparseAttention(nn.Module):
         self.sparsemax = nn.Softmax(dim=-1) if alpha == 1. \
             else EntmaxBisect(alpha, dim=-1)
 
-        self.scale = d_k ** -0.5                                        # d_k的开平方
+        self.scale = d_k ** -0.5                                        
         self.bilinear_w = nn.Linear(nemb, d_k, bias=False)              # nemb*d_k
         self.query = nn.Parameter(torch.zeros(nhid, d_k))               # nhid*d_k
         self.values = nn.Parameter(torch.zeros(nhid, nfield))           # nhid*nfield
@@ -69,7 +69,7 @@ class ARMNetModel(nn.Module):
             # self.deep_embedding = get_embedding(nfield, nfeat, nemb, ncross=emb_ncross)
             self.deep_mlp = MLP(nfield * nemb, mlp_nlayer, mlp_nhid, dropout, noutput=noutput)
             self.ensemble_layer = nn.Linear(2*noutput, noutput)
-            nn.init.constant_(self.ensemble_layer.weight, 0.5)  # 更换系数  [weight*ArmNet + weight*DNN]
+            nn.init.constant_(self.ensemble_layer.weight, 0.5)  # [weight*ArmNet + weight*DNN]
             nn.init.constant_(self.ensemble_layer.bias, 0.)
 
     def forward(self, x):
