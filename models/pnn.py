@@ -77,7 +77,7 @@ class KPNNModel(torch.nn.Module):
         :param x:   {'id': LongTensor B*F, 'value': FloatTensor B*F}
         :return:    y of size B, Regression and Classification (+sigmoid)
         """
-        x_emb = self.embedding(x)                                               # B*(FxE)   # embedding -> B * Field * E // 加一层处理使得维度相乘
+        x_emb = self.embedding(x)                                               # B*(FxE)   # embedding -> B * Field * E
         x_prod = self.pnn(x_emb)                                                # B*(Fx(F-1)/2)
         y = self.mlp(torch.cat([x_emb.view(-1, self.ninput), x_prod], dim=1))   # B*1
         return y.squeeze(1)
