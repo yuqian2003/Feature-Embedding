@@ -155,7 +155,7 @@ class scaled_dot_prodct_attention_(nn.Module):
 
         return output, attn
 
-# 可以修改多头自注意力-- amformer
+
 class MultiHeadAttention(nn.Module):
     '''Multi-head Attention Module'''
     def __init__(self, nhead, ninput, n_k, n_v, dropout=0.):
