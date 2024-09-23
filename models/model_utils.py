@@ -20,7 +20,6 @@ from models.xdfm import xDeepFMModel
 
 from models.afn import AFNModel
 from models.armnet import ARMNetModel
-from models.armnet_1h import ARMNetModel as ARMNet1H
 from models.gc_arm import GC_ARMModel
 from models.sa_glu import SA_GLUModel
 
