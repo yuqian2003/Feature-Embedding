@@ -85,7 +85,6 @@ class ARMNetModel(nn.Module):
         x_arm = rearrange(x_arm, 'b o e -> b (o e)')                    # bsz*(nhid*nemb)
 
         y = self.mlp(x_arm)                                             # B*noutput
-        # 与DNN ensemble，更换dnn
         if hasattr(self, 'ensemble_layer'):
             x_deep = self.deep_embedding(x)                             # bsz*nfield*nemb
             x_deep = rearrange(x_deep, 'b f e -> b (f e)')              # bsz*(nfield*nemb)
